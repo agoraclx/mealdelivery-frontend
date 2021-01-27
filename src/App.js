@@ -12,6 +12,7 @@ function App() {
   // const API_URL = 'http://localhost/mealdelivery-backend/public/api/restaurants?';
   const [restaurantData, setData] = useState({ data: [] });
   const [query, setQuery] = useState('');
+  const [queryDrop, setQueryDrop] = useState('');
   const [url, setUrl] = useState(API_URL);
 
   const [isLoading, setIsLoading] = useState(false);
@@ -27,6 +28,18 @@ function App() {
     };
     fetchData();
   }, [query]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setIsLoading(true);
+
+      const result = await axios(API_URL + `query=${queryDrop}`);
+      setData(result.data);
+
+      setIsLoading(false);
+    };
+    fetchData();
+  }, [queryDrop]);
 
   useEffect(() => {
     const fetchDataList = async () => {
@@ -57,7 +70,7 @@ function App() {
           <div className="container mx-auto md:flex py-4 px-4">
             <div className="block mx-auto md:w-full  md:flex justify-center">
               <div className=" w-full md:w-1/2 mb-4 md:mb-0 mr-0 md:mr-4 md:mx-auto border font-semibold tracking-wide text-sm focus:outline-none focus:shadow-outline border-yellow-itsavirus text-black hover:bg-yellow-itsavirus hover:text-black">
-                <select className="w-full text-black py-3 px-4 pr-4">
+                <select className="w-full text-black py-3 px-4 pr-4" onChange={event => setQueryDrop(event.target.value)}>
                   <option>Opening days</option>
 
                   {
@@ -65,7 +78,6 @@ function App() {
                       <option
                         key={item.id }
                         value={ item.id }
-                        onClick={() => setUrl(API_URL + `query=${item.id}`)}
                       >
                         {item.name}
                       </option>
@@ -74,8 +86,8 @@ function App() {
 
                 </select>
               </div>
-              <div className=" w-full md:w-1/2 mb-4 md:mb-0 mr-0 md:mr-4 md:mx-auto border font-semibold tracking-wide text-sm focus:outline-none focus:shadow-outline border-yellow-itsavirus text-black hover:bg-yellow-itsavirus hover:text-black">
-                <select className="w-full text-black py-3 px-4 pr-4">
+              {/* <div className=" w-full md:w-1/2 mb-4 md:mb-0 mr-0 md:mr-4 md:mx-auto border font-semibold tracking-wide text-sm focus:outline-none focus:shadow-outline border-yellow-itsavirus text-black hover:bg-yellow-itsavirus hover:text-black">
+                <select className="w-full text-black py-3 px-4 pr-4" onChange={event => setQueryDrop(event.target.value)}>
                   <option>Opening Hours</option>
 
                   {
@@ -83,7 +95,6 @@ function App() {
                       <option
                         key={item.id}
                         value={item.id}
-                        onChange={event => setQuery(event.target.value)}
                       >
                         {item.name}
                       </option>
@@ -91,9 +102,9 @@ function App() {
                   }
 
                 </select>
-              </div>
+              </div> */}
               <div className=" w-full md:w-1/2 mb-4 md:mb-0 mr-0 md:mr-4 md:mx-auto border font-semibold tracking-wide text-sm focus:outline-none focus:shadow-outline border-yellow-itsavirus text-black hover:bg-yellow-itsavirus hover:text-black">
-                <select className="w-full text-black py-3 px-4 pr-4">
+                <select className="w-full text-black py-3 px-4 pr-4" onChange={event => setQueryDrop(event.target.value)}>
                   <option>Price range</option>
                   
                   {
@@ -101,7 +112,6 @@ function App() {
                       <option
                         key={item.id}
                         value={item.id}
-                        onChange={event => setQuery(event.target.value)}
                       >
                         {item.price}
                       </option>
