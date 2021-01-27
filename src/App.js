@@ -86,23 +86,6 @@ function App() {
 
                 </select>
               </div>
-              {/* <div className=" w-full md:w-1/2 mb-4 md:mb-0 mr-0 md:mr-4 md:mx-auto border font-semibold tracking-wide text-sm focus:outline-none focus:shadow-outline border-yellow-itsavirus text-black hover:bg-yellow-itsavirus hover:text-black">
-                <select className="w-full text-black py-3 px-4 pr-4" onChange={event => setQueryDrop(event.target.value)}>
-                  <option>Opening Hours</option>
-
-                  {
-                    DayWeek.map(item => (
-                      <option
-                        key={item.id}
-                        value={item.id}
-                      >
-                        {item.name}
-                      </option>
-                    ))
-                  }
-
-                </select>
-              </div> */}
               <div className=" w-full md:w-1/2 mb-4 md:mb-0 mr-0 md:mr-4 md:mx-auto border font-semibold tracking-wide text-sm focus:outline-none focus:shadow-outline border-yellow-itsavirus text-black hover:bg-yellow-itsavirus hover:text-black">
                 <select className="w-full text-black py-3 px-4 pr-4" onChange={event => setQueryDrop(event.target.value)}>
                   <option>Price range</option>
