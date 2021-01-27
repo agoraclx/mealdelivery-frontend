@@ -35,3 +35,11 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+## Access to website:
+~~~
+http://localhost:3000/
+
+
+FrontEnd:
+http://itsavirus.moglong.com/
+~~~
