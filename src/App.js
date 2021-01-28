@@ -61,11 +61,11 @@ function App() {
       <div className="flex flex-col min-h-screen">
         {/* start header */}
         <div className="header">
-          <div className="p-5 border-b border-gray-700 flex items-center justify-center">
+          <h1 className="p-5 border-b border-gray-700 flex items-center justify-center">
             <a href="https://www.itsavirus.com" className="logo">
               <img alt="itsavirus" src="https://www.itsavirus.com/static/media/logo.c870d00f.svg" />
             </a>
-          </div>
+          </h1>
 
           <div className="container mx-auto md:flex py-4 px-4">
             <div className="block mx-auto md:w-full  md:flex justify-center">
@@ -140,7 +140,7 @@ function App() {
           <div className="container mx-auto flex flex-wrap -m-3">
             {
               isLoading ? (
-                <div className="mx-auto w-full flex justify-center">Loading ...</div>
+                <p className="mx-auto w-full flex justify-center">Loading ...</p>
               ) : (
                   restaurantData.data.map(item => (
                     <div className="w-full md:w-1/2 flex flex-col p-3" key={item.id}>
